@@ -4,21 +4,21 @@ services:
     build:
       context: ./
       dockerfile: ./common_Dockerfile
-    image: grpcweb/common
+#    image: helloworld/common
   node-server:
     build:
       context: ./
       dockerfile: ./node_server_Dockerfile
     depends_on:
       - common
-    image: grpcweb/node-server
+#    image: helloworld/node-server
     ports:
       - "9090:9090"
   envoy:
     build:
       context: ./
       dockerfile: ./envoy_Dockerfile
-    image: grpcweb/envoy
+#    image: helloworld/envoy
     ports:
       - "8080:8080"
     links:
@@ -29,6 +29,6 @@ services:
       dockerfile: ./commonjs_client_Dockerfile
     depends_on:
       - common
-    image: grpcweb/commonjs-client
+#    image: helloworld/commonjs-client
     ports:
       - "8081:8081"
